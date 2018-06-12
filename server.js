@@ -33,7 +33,6 @@ const start = async () => {
 	method: 'GET',
 	path: '/{city}/{file}',
 	handler: function (request, h) {
-	    console.log(h)
 	    return h.file(Path.join(request.params.city, request.params.file));
 	}
     });
