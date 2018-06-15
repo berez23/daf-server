@@ -23,7 +23,7 @@ const start = async () => {
 
     server.route({
         method: 'GET',
-        path: '/mappa/menu',
+        path: '/mappa/menu.json',
         handler: function (request, h) {
             return h.file('menu.json');
         }
@@ -33,7 +33,6 @@ const start = async () => {
 	method: 'GET',
 	path: '/mappa/{city}/{file}',
 	handler: function (request, h) {
-	    console.log(h)
 	    return h.file(Path.join(request.params.city, request.params.file));
 	}
     });
