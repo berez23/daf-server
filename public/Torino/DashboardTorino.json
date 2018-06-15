@@ -1,6 +1,6 @@
 {
     "id": "Torino_dashboard_ISTAT",
-    "url": "http://localhost:4000/Torino/Torino_dashboard.json",
+    "url": "https://api.daf.teamdigitale.it/mappa/Torino/Torino_dashboard.json",
     "dataSource": "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
     "list": [{
 	"label": "Popolazione residente",
