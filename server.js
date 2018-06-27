@@ -5,7 +5,7 @@ const Path = require('path');
 
 const server = Hapi.server({
     port: 4000,
-    host: 'localhost',
+    host: '0.0.0.0',
     routes: {
         files: {
             relativeTo: Path.join(__dirname, 'public')
@@ -23,7 +23,7 @@ const start = async () => {
 
     server.route({
         method: 'GET',
-        path: '/menu.json',
+        path: '/mappa/menu',
         handler: function (request, h) {
             return h.file('menu.json');
         }
@@ -31,7 +31,7 @@ const start = async () => {
 
     server.route({
 	method: 'GET',
-	path: '/{city}/{file}',
+	path: '/mappa/{city}/{file}',
 	handler: function (request, h) {
 	    return h.file(Path.join(request.params.city, request.params.file));
 	}

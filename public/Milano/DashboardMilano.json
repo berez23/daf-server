@@ -1,6 +1,6 @@
 {
     "id": "Milano_dashboard_ISTAT",
-    "url": "http://localhost:4000/Milano/Milano_dashboard.json",
+    "url": "http://api.daf.teamdigitale.it/mappa/Milano/Milano_dashboard.json",
     "dataSource": "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
     "list": [{
 	"label": "Popolazione residente",
