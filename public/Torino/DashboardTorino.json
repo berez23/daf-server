@@ -8,11 +8,21 @@
 	"unit": ""
     }],
     "piechart": [{
+	"label": "Livello di educazione",
+	"labels": ["laurea/diploma universitario/diploma terziario","scuola secondaria superiore","scuola media inferiore", "licenza elementare", "alfabeti", "analfabeti"],
+	"fields": ["P47", "P48", "P49", "P50", "P51", "P52"],
+	"colors": [ "#9e0142", "#fdae61", "#abdda4", "red", "blue", "yellow"]
+    },{
 	"label": "Situazione Occupazionale",
-	"labels": ["occupati", "disoccupati", "in cerca di lavoro"],
-	"fields": ["P61", "DAF1", "P62"],
-	"colors": [ "#9e0142", "#fdae61", "#abdda4"],
-	"descrizione_fields": "DAF1=P60-P61-P62"
+	"labels": ["laurea/diploma universitario/diploma terziario","scuola secondaria superiore","scuola media inferiore", "licenza elementare", "alfabeti", "analfabeti"],
+        "fields": ["P47", "P48", "P49", "P50", "P51", "P52"],
+        "colors": [ "#9e0142", "#fdae61", "#abdda4", "red", "blue", "yellow"]
+    },{
+	"label": "Popolazione residente straniera o apolide",
+	"labels": ["Europa tranne Italia", "Africa", "America", "Asia", "Oceania", "Apolide"],
+	"fields": ["DAF21", "DAF22", "DAF23", "DAF24", "DAF25", "DAF26"],
+	"colors": ["green", "violet", "yellow", "brown", "orange", "gray"],
+	"descrizione_fields": ["DAF21=100*ST9/ST1", "DAF22=100*ST10/ST1", "DAF23=100*ST11/ST1", "DAF24=100*ST12/ST1", "DAF25=100*ST13/ST1", "DAF26=100*ST14/ST1"]
     }],
     "barchart2": [{
 	"label": "Popolazione per fasce d'età",
@@ -29,6 +39,21 @@
 	    "descrizione_fields": "DAF11=P30+P31, DAF12=P32+P33, DAF13=P34+P35, DAF14=P36+P37, DAF15=P38+P39, DAF16=P40+P41, DAF17=P42+P43, DAF18=P44+P45"
 	},
 	"labels": ["0-9", "10-19", "30-39", "40-49", "50-59", "60-69", ">70"]
+    },{
+	"label": "Percentuale di residenti che si sposta giornalmente",
+	"data1": {
+	    "fields": ["DAF19"],
+	    "label": "nel comune",
+	    "color": "blue",
+	    "descrizione_fields": "DAF19=P138/(P138+P139)"
+	},
+	"data2": {
+	    "fields": ["DAF20"],
+	    "label": "fuori dal comune",
+	    "color": "red",
+	    "descrizione_fields": "DAF20=P139/(P138+P139)"
+	},
+	"labels": [""]
     }]
 }
 
