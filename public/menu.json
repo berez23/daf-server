@@ -2,7 +2,7 @@
     "id" : "Milano_quartieri",
     "city" : "Milano",
     "type" : "source",
-    "url" : "https://localhost:4000/Milano/Milano_quartieri.geojson",
+    "url" : "http://localhost:4000/Milano/Milano_quartieri.geojson",
     "center" : [9.191383, 45.464211],
     "zoom" : 11,
     "joinField" : "IDquartiere",
@@ -20,7 +20,7 @@
 	"labels" : ["","","6-9","10-14","15-19","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
 	"raw" : {
-	    "url": "https://localhost:4000/Milano/incidenti.json",
+	    "url": "http://localhost:4000/Milano/incidenti.json",
 	    "color" : "red"
 	}
     },{
@@ -47,14 +47,14 @@
         "label" : "Fermate TPL",
 	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"]
     }],
-    "url" : "https://localhost:4000/Milano/Milano_Trasporti.json"
+    "url" : "http://localhost:4000/Milano/Milano_Trasporti.json"
 },{
     "id" : "Milano_Vitalita",
     "city" : "Milano",
     "type" : "layer",
     "sourceId" : "Milano_quartieri",
     "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
-    "url" : "https://localhost:4000/Milano/Milano_Vitality.json",
+    "url" : "http://localhost:4000/Milano/Milano_Vitality.json",
     "indicators" : [{
 	"category" : "Vitalità",
 	"label" : "Tipo di alloggi",
@@ -67,11 +67,11 @@
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
 	"raw" : {
-            "url" : "https://localhost:4000/Milano/incidenti.json",
+            "url" : "http://localhost:4000/Milano/incidenti.json",
             "color" : "red"
         },
 	"grid" : {
-	    "url" : "https://localhost:4000/Milano/grid.json",
+	    "url" : "http://localhost:4000/Milano/grid.json",
 	    "colorRange" : ["yellow", "blue"],
 	    "translate" : [9.191300, 45.464200],
 	    "scale"  : 1
@@ -84,7 +84,7 @@
     "type" : "layer",
     "sourceId" : "Milano_quartieri",
     "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
-    "url" : "https://localhost:4000/Milano/Milano_Istat.json",
+    "url" : "http://localhost:4000/Milano/Milano_Istat.json",
     "indicators" : [{
 	"category" : "Popolazione",
 	"label" : "Popolazione residente",
@@ -96,7 +96,7 @@
     "id" : "Milano_Salute",
     "city" : "Milano",
     "type" : "layer",
-    "url" : "https://localhost:4000/Milano/Milano_Salute.json",
+    "url" : "http://localhost:4000/Milano/Milano_Salute.json",
     "indicators" : [{
         "category" : "Salute",
         "dataSource" : "Min. Salute",
@@ -111,7 +111,7 @@
     "id" : "Torino_quartieri",
     "city" : "Torino",
     "type" : "source",
-    "url" : "https://localhost:4000/Torino/ex_quartieri_wsg84.geojson",
+    "url" : "http://localhost:4000/Torino/ex_quartieri_wsg84.geojson",
     "dataSource" : "Comune di Torino",
     "center" : [7.6869, 45.0703],
     "zoom" : 10.5,
@@ -123,7 +123,7 @@
     "id" : "Torino_Salute",
     "city" : "Torino",
     "type" : "layer",
-    "url" : "https://localhost:4000/Torino/Torino_Salute.json",
+    "url" : "http://localhost:4000/Torino/Torino_Salute.json",
     "indicators" : [{
         "category" : "Salute",
         "dataSource" : "Min. Salute",
@@ -153,7 +153,7 @@
     }],
     "sourceId" : "Torino_quartieri",
     "type" : "layer",
-    "url" : "https://localhost:4000/Torino/Torino_EducazioneCultura.json"
+    "url" : "http://localhost:4000/Torino/Torino_EducazioneCultura.json"
 },{
     "city" : "Torino",
     "id" : "Torino_Trasporti",
@@ -167,14 +167,14 @@
     }],
     "sourceId" : "Torino_quartieri",
     "type" : "layer",
-    "url" : "https://localhost:4000/Torino/Torino_Trasporti.json"
+    "url" : "http://localhost:4000/Torino/Torino_Trasporti.json"
 },{
     "id" : "Torino_Vitalita",
     "city" : "Torino",
     "type" : "layer",
     "sourceId" : "Torino_quartieri",
     "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
-    "url" : "https://localhost:4000/Torino/Torino_Vitality.json",
+    "url" : "http://localhost:4000/Torino/Torino_Vitality.json",
     "indicators" : [{
 	"category" : "Vitalità",
 	"label" : "Tipi di Alloggio",
@@ -194,7 +194,7 @@
     "type" : "layer",
     "sourceId" : "Torino_quartieri",
     "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
-    "url" : "https://localhost:4000/Torino/Torino_Istat.json",
+    "url" : "http://localhost:4000/Torino/Torino_Istat.json",
     "indicators" : [{
         "category" : "Popolazione",
         "label" : "Popolazione residente",
