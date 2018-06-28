@@ -17,12 +17,19 @@
         "id" : "School",
         "label" : "Scuole",
 	"dataSource" : "MIUR",
-	"labels" : ["","","6-10","10-15","15-19","","","","","",""],
+	"labels" : ["","","6-9","10-14","","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
 	"raw" : {
 	    "url": "https://api.daf.teamdigitale.it/mappa/Milano/incidenti.json",
 	    "color" : "red"
 	}
+    },{
+	"category" : "Educazione e Cultura",
+	"id" : "Library",
+	"label" : "Biblioteche",
+	"dataSource" : "MIBACT",
+	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
+	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"]
     }],
     "city" : "Milano",
     "sourceId" : "Milano_quartieri",
@@ -46,7 +53,7 @@
     "city" : "Milano",
     "type" : "layer",
     "sourceId" : "Milano_quartieri",
-    "dataSource" : "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
+    "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
     "url" : "https://api.daf.teamdigitale.it/mappa/Milano/Milano_Vitality.json",
     "indicators" : [{
 	"category" : "Vitalità",
@@ -55,10 +62,10 @@
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
     },{
 	"category" : "Vitalità",
-	"label" : "Densità di occupati (per mq)",
+	"label" : "Densità di occupati (per ettaro)",
 	"id" : "densita_occupati",
 	"default" : true,
-	"colors" : ["#ffffff", "#cce6ff","#99ccff","#66b3ff","#3399ff","#0080ff","#004d99","#00264d","#000d1a"],
+	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
 	"raw" : {
             "url" : "https://api.daf.teamdigitale.it/mappa/Milano/incidenti.json",
             "color" : "red"
@@ -68,20 +75,22 @@
 	    "colorRange" : ["yellow", "blue"],
 	    "translate" : [9.191300, 45.464200],
 	    "scale"  : 1
-	}
+	},
+	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere</br><b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, il quartiere con la più alta densità di occupati è Loreto, seguito da Selinunte, Buenos Aires Venezia e Washington. Il quartiere invece con la più bassa densità di occupati è Parco Bosco in Città, seguito da Parco Forlanini, Quintosole e Figino. Duomo è all'incirca a metà nella scala, con una densità relativamente bassa di occupati."
     }]
 },{
     "id" : "Milano_Istat",
     "city" : "Milano",
     "type" : "layer",
     "sourceId" : "Milano_quartieri",
-    "dataSource" : "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
-    "url" : "https://api.daf.teamdigitale.it/mappa/Milano/Milano_Istat.json",
+    "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
+    "url" : "https://api.daf.teamdigitale.it/mappa/Milano_Istat.json",
     "indicators" : [{
 	"category" : "Popolazione",
 	"label" : "Popolazione residente",
 	"id" : "P1",
-	"colors" : ["#ffffff", "#cce6ff","#99ccff","#66b3ff","#3399ff","#0080ff","#004d99","#00264d","#000d1a"]
+	"colors" : ["#ffffe5", "#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"],
+	"highlight" : "black"
     }]
 },{
     "id" : "Milano_Salute",
@@ -94,7 +103,8 @@
         "id" : "Pharmacy",
 	"label" : "Farmacie",
         "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
-	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"]
+	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
+	"highlight": "yellow"
     }],
     "sourceId" : "Milano_quartieri"
 },{
@@ -120,7 +130,7 @@
         "id" : "Pharmacy",
         "label" : "Farmacie",
 	"labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
-	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"]
+	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
     }],
     "sourceId" : "Torino_quartieri"
 },{
@@ -132,6 +142,13 @@
         "id" : "School",
         "label" : "Scuole",
 	"labels": ["","","6-10","10-15","15-19","","","","","",""],
+	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"]
+    },{
+	"category" : "Educazione e Cultura",
+	"dataSource" : "MIBACT",
+	"id" : "Library",
+	"label" : "Biblioteche",
+	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"]
     }],
     "sourceId" : "Torino_quartieri",
@@ -156,7 +173,7 @@
     "city" : "Torino",
     "type" : "layer",
     "sourceId" : "Torino_quartieri",
-    "dataSource" : "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
+    "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
     "url" : "https://api.daf.teamdigitale.it/mappa/Torino/Torino_Vitality.json",
     "indicators" : [{
 	"category" : "Vitalità",
@@ -165,17 +182,18 @@
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
     },{
 	"category" : "Vitalità",
-	"label" : "Densità di occupati (per mq)",
+	"label" : "Densità di occupati (per ettaro)",
 	"id" : "densita_occupati",
 	"default" : true,
-	"colors" : ["#ffffff", "#cce6ff","#99ccff","#66b3ff","#3399ff","#0080ff","#004d99","#00264d","#000d1a"]
+	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
+	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere</br><b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, il quartiere con la più alta densità di occupati è San Donato, seguito da Cenisia, San Paolo e Barriera di Milano. Il quartiere invece con la più bassa densità di occupati è Madonna del Pilone, seguito da borgo Poe Cavoretto."
     }]
 },{
     "id" : "Torino_Istat",
     "city" : "Torino",
     "type" : "layer",
     "sourceId" : "Torino_quartieri",
-    "dataSource" : "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
+    "dataSource" : "ISTAT (censimento 2011 della pop. e delle abitaz.)",
     "url" : "https://api.daf.teamdigitale.it/mappa/Torino/Torino_Istat.json",
     "indicators" : [{
         "category" : "Popolazione",
