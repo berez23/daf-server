@@ -5,18 +5,20 @@ FROM node:8
 # The base node image sets a very verbose log level.
 ENV NPM_CONFIG_LOGLEVEL warn
 
-RUN apt-get update && apt-get install -y \
-  git-core   
+#RUN apt-get update && apt-get install -y \
+#  git-core   
   #&& apt-get install -y build-essential python
+
+COPY . .
 
 #RUN npm install -g node-gyp  
 
 # Copy all local files into the image.
-RUN git clone https://github.com/esterpantaleo/daf-server
+#RUN git clone https://github.com/esterpantaleo/daf-server
 
 WORKDIR /daf-server
 
-RUN git checkout production
+#RUN git checkout production
 
 RUN npm install
 
