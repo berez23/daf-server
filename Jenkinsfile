@@ -30,25 +30,13 @@ pipeline {
     stage('Upload'){
       steps {
         script {
-          if(env.BRANCH_NAME == 'testci'){ 
+          if(env.BRANCH_NAME == 'testci'  || env.BRANCH_NAME == 'production'){ 
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker push $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID' 
-            sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker rmi $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID'  
+            sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker rmi $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID' 
+            sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); git commit $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID $IMAGE_NAME_SERVER:latest; git commit $IMAGE_NAME_SERVER:latest' 
           }
         }       
         }
       }
-    /*stage('Staging') {
-      steps { 
-        script {
-          if(env.BRANCH_NAME == 'production'){            
-            sh '''
-            COMMITID=$(echo ${GIT_COMMIT} | cut -c 1-6);  sed "s#image: nexus.teamdigitale.test/daf-mappa.*#image: nexus.teamdigitale.test/daf-mappa-quartiere:$BUILD_NUMBER-$COMMIT_ID#" mappa-quartiere.yaml ; kubectl apply -f mappa-quartiere.yaml'''
-          }                     
-            if(env.BRANCH_NAME=='test'){
-              sh ''' COMMIT_ID=$(echo ${GIT_COMMIT}|cut -c 1-6);
-              sed "s#image: nexus.teamdigitale.test/daf-server.*#image: nexus.teamdigitale.test/daf-server:$BUILD_NUMBER-$COMMIT_ID#" mappa-quartiere.yaml > mappa-quartiere1.yaml ;kubectl apply -f mappa-quartiere1.yaml --validate=false'''             
-          }
-        }
-        */
       }
     }
