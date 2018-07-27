@@ -8,9 +8,7 @@ pipeline {
     stage('Build') {
       steps { 
         script {          
-        if(env.GIT_URL.contains("server")){
            sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker build . -t $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID'
-        }
         }
       }
     }
