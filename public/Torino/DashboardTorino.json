@@ -1,6 +1,6 @@
 {
     "id": "Torino_dashboard_ISTAT",
-    "url": "http://localhost:4000/Torino/Torino_dashboard.json",
+    "url": "Torino/Torino_dashboard.json",
     "dataSource": "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
     "list": [{
 	"label": "Popolazione residente",
@@ -14,9 +14,10 @@
 	"colors": [ "#9e0142", "#fdae61", "#abdda4", "red", "blue", "yellow"]
     },{
 	"label": "Situazione Occupazionale",
-	"labels": ["laurea/diploma universitario/diploma terziario","scuola secondaria superiore","scuola media inferiore", "licenza elementare", "alfabeti", "analfabeti"],
-        "fields": ["P47", "P48", "P49", "P50", "P51", "P52"],
-        "colors": [ "#9e0142", "#fdae61", "#abdda4", "red", "blue", "yellow"]
+	"labels": ["occupati", "disoccupati", "in cerca di lavoro"],
+        "fields": ["P61", "DAF1", "P62"],
+        "colors": [ "#0066cc", "#cc0000", "orange"],
+        "descrizione_fields": "DAF1=P60-P61-P62"
     },{
 	"label": "Popolazione residente straniera o apolide",
 	"labels": ["Europa tranne Italia", "Africa", "America", "Asia", "Oceania", "Apolide"],
