@@ -1,0 +1,60 @@
+{
+    "id": "Firenze_dashboard_ISTAT",
+    "url": "Firenze/Firenze_dashboard.json",
+    "dataSource": "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
+    "list": [{
+	"label": "Popolazione residente",
+	"field": "P1",
+	"unit": ""
+    }],
+    "piechart": [{
+	"label": "Livello di educazione",
+	"labels": ["laurea/diploma universitario/diploma terziario","scuola secondaria superiore","scuola media inferiore", "licenza elementare", "alfabeti", "analfabeti"],
+	"fields": ["P47", "P48", "P49", "P50", "P51", "P52"],
+	"colors": [ "#9e0142", "#fdae61", "#abdda4", "red", "blue", "yellow"]
+    },{
+	"label": "Situazione Occupazionale",
+	"labels": ["occupati", "disoccupati", "in cerca di lavoro"],
+        "fields": ["P61", "DAF1", "P62"],
+        "colors": [ "#0066cc", "#cc0000", "orange"],
+        "descrizione_fields": "DAF1=P60-P61-P62"
+    },{
+	"label": "Popolazione residente straniera o apolide",
+	"labels": ["Europa tranne Italia", "Africa", "America", "Asia", "Oceania", "Apolide"],
+	"fields": ["DAF21", "DAF22", "DAF23", "DAF24", "DAF25", "DAF26"],
+	"colors": ["green", "violet", "yellow", "brown", "orange", "gray"],
+	"descrizione_fields": ["DAF21=100*ST9/ST1", "DAF22=100*ST10/ST1", "DAF23=100*ST11/ST1", "DAF24=100*ST12/ST1", "DAF25=100*ST13/ST1", "DAF26=100*ST14/ST1"]
+    }],
+    "barchart2": [{
+	"label": "Popolazione per fasce d'età",
+	"data1": {
+	    "fields": ["DAF3", "DAF4", "DAF5", "DAF6", "DAF7", "DAF8", "DAF9", "DAF10"],
+	    "label": "donne",
+	    "color": "pink",
+	    "descrizione_fields": "DAF3=P14+P15-P30-P31, DAF4=P16+P17-P32-P33, DAF5=P18+P19-P34-P35, DAF6=P20+P21-P36-P37, DAF7=P22+P23-P38-P39, DAF8=P24+P25-P40-P41, DAF9=P26+P27-P42-P43, DAF10=P28+P29-P44-P45"
+	},
+	"data2": {
+	    "fields": ["DAF11","DAF12","DAF13","DAF14","DAF15","DAF16","DAF17","DAF18"],
+	    "label": "uomini",
+	    "color": "blue",
+	    "descrizione_fields": "DAF11=P30+P31, DAF12=P32+P33, DAF13=P34+P35, DAF14=P36+P37, DAF15=P38+P39, DAF16=P40+P41, DAF17=P42+P43, DAF18=P44+P45"
+	},
+	"labels": ["0-9", "10-19", "30-39", "40-49", "50-59", "60-69", ">70"]
+    },{
+	"label": "Percentuale di residenti che si sposta giornalmente",
+	"data1": {
+	    "fields": ["DAF19"],
+	    "label": "nel comune",
+	    "color": "blue",
+	    "descrizione_fields": "DAF19=P138/(P138+P139)"
+	},
+	"data2": {
+	    "fields": ["DAF20"],
+	    "label": "fuori dal comune",
+	    "color": "red",
+	    "descrizione_fields": "DAF20=P139/(P138+P139)"
+	},
+	"labels": [""]
+    }]
+}
+

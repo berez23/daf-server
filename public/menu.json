@@ -20,7 +20,11 @@
 	"labels" : ["","","6-9","10-14","","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
 	"raw" : {
-	    "url": "Milano/Milano_scuole.json"
+	    "url": "Milano/Milano_scuole.json",
+	    "radius": 5,
+	    "capacity": "ALUNNI",
+	    "id": "UnitaScuole",
+	    "description": ["DENOMINAZIONESCUOLA", "DESCRIZIONETIPOLOGIAGRADOISTRUZIONESCUOLA", "ORDINESCUOLA", "Affluenza", "ALUNNI", "myRatio"]
 	}
     },{
 	"category" : "Educazione e Cultura",
@@ -30,7 +34,10 @@
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
 	"raw" : {
-	    "url" : "Milano/Milano_biblioteche.json"
+	    "url" : "Milano/Milano_biblioteche.json",
+	    "id": "UnitaBiblioteche",
+	    "radius": 5,
+	    "description": ["denominazioni.ufficiale", "ente", "indirizzo.via-piazza", "tipologia-amministrativa", "tipologia-funzionale", "Affluenza"]
 	}
     }],
     "city" : "Milano",
@@ -49,7 +56,10 @@
         "label" : "Fermate TPL",
 	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"],
 	"raw": {
-	    "url" : "Milano/Milano_TPL"
+	    "url" : "Milano/Milano_TPL",
+	    "id": "UnitaTrasporti",
+	    "radius": 3,
+	    "description": ["route_id", "stop_name", "Affluenza"]
 	}
     }],
     "url" : "Milano/Milano_Trasporti.json"
@@ -68,7 +78,7 @@
 	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto il tipo di alloggi.</br>"
     },{
 	"category" : "Vitalità",
-	"label" : "Densità di occupati (per ettaro)",
+	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
@@ -100,7 +110,10 @@
         "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
 	"raw" : {
-	    "url" : "Milano/Milano_farmacie"
+	    "url" : "Milano/Milano_farmacie",
+	    "id": "UnitaFarmacie",
+	    "radius": 5,
+	    "description": ["DESCRIZIONEFARMACIA", "INDIRIZZO", "DATAINIZIOVALIDITA", "DESCRIZIONETIPOLOGIA", "CODICETIPOLOGIA", "Affluenza"]
 	}
     }],
     "sourceId" : "Milano_quartieri"
@@ -179,7 +192,7 @@
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
     },{
 	"category" : "Vitalità",
-	"label" : "Densità di occupati (per ettaro)",
+	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
@@ -246,7 +259,7 @@
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
     },{
 	"category" : "Vitalità",
-	"label" : "Densità di occupati (per ettaro)",
+	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
@@ -341,7 +354,7 @@
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
     },{
 	"category" : "Vitalità",
-	"label" : "Densità di occupati (per ettaro)",
+	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
