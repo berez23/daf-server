@@ -29,7 +29,7 @@ pipeline {
     stage('Upload'){
       steps {
         script {
-          if(env.BRANCH_NAME == 'testci'  || env.BRANCH_NAME == 'production'){ 
+          if(env.BRANCH_NAME == 'test'  || env.BRANCH_NAME == 'testci'  || env.BRANCH_NAME == 'production'){ 
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker push $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID'
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker tag $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID $IMAGE_NAME_SERVER:latest; docker push $IMAGE_NAME_SERVER:latest'  
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker rmi $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID'
