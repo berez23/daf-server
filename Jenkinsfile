@@ -37,7 +37,7 @@ pipeline {
         }       
       }
     }
-    stage('Staging') {
+/*    stage('Staging') {
       steps { 
         script {
           if(env.BRANCH_NAME=='test' ){
@@ -49,7 +49,7 @@ pipeline {
           }
         }
       }
-}
+}*/
 }
   post { 
         failure { 
