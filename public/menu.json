@@ -5,7 +5,6 @@
     "url" : "Milano/Milano_quartieri.geojson",
     "center" : [9.191383, 45.464211],
     "zoom" : 11,
-    "joinField" : "IDquartiere",
     "nameField" : "quartiere",
     "dataSource" : "Comune di Milano",
     "default" : true,
@@ -15,12 +14,12 @@
     "indicators" : [{
         "category" : "Educazione e Cultura",
         "id" : "School",
-        "label" : "Scuole",
+        "label" : "Disponibilità di Scuole",
 	"dataSource" : "MIUR",
 	"labels" : ["","","6-9","10-14","","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
 	"raw" : {
-	    "url": "Milano/Milano_scuole.json",
+	    "url": "Milano/Milano_scuole.geojson",
 	    "radius": 5,
 	    "capacity": "ALUNNI",
 	    "id": "UnitaScuole",
@@ -29,12 +28,12 @@
     },{
 	"category" : "Educazione e Cultura",
 	"id" : "Library",
-	"label" : "Biblioteche",
+	"label" : "Disponibilità di Biblioteche",
 	"dataSource" : "MIBACT",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
 	"raw" : {
-	    "url" : "Milano/Milano_biblioteche.json",
+	    "url" : "Milano/Milano_biblioteche.geojson",
 	    "id": "UnitaBiblioteche",
 	    "radius": 5,
 	    "description": ["denominazioni.ufficiale", "ente", "indirizzo.via-piazza", "tipologia-amministrativa", "tipologia-funzionale", "Affluenza"]
@@ -53,7 +52,7 @@
         "category" : "Trasporti",
         "dataSource" : "GTFS Comuni",
         "id" : "TransportStop",
-        "label" : "Fermate TPL",
+        "label" : "Disponibilità di Fermate TPL",
 	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"],
 	"raw": {
 	    "url" : "Milano/Milano_TPL",
@@ -106,7 +105,7 @@
         "category" : "Salute",
         "dataSource" : "Min. Salute",
         "id" : "Pharmacy",
-	"label" : "Farmacie",
+	"label" : "Disponibilità di Farmacie",
         "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
 	"raw" : {
@@ -124,8 +123,7 @@
     "url" : "Torino/ex_quartieri_wsg84.geojson",
     "dataSource" : "Comune di Torino",
     "center" : [7.6869, 45.0703],
-    "zoom" : 10.5,
-    "joinField" : "IDquartiere",
+    "zoom" : 11,
     "nameField" : "DENOM",
     "indicators" : [],
     "default" : true
@@ -138,7 +136,7 @@
         "category" : "Salute",
         "dataSource" : "Min. Salute",
         "id" : "Pharmacy",
-        "label" : "Farmacie",
+        "label" : "Disponibilità di Farmacie",
 	"labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
     }],
@@ -150,16 +148,29 @@
         "category" : "Educazione e Cultura",
         "dataSource" : "MIUR",
         "id" : "School",
-        "label" : "Scuole",
+        "label" : "Disponibilità di Scuole",
 	"labels": ["","","6-10","10-15","15-19","","","","","",""],
-	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"]
+	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"],
+        "raw" : {
+            "url": "Torino/Torino_scuole.geojson",
+            "radius": 5,
+            "capacity": "ALUNNI",
+            "id": "UnitaScuole",
+            "description": ["DENOMINAZIONESCUOLA", "DESCRIZIONETIPOLOGIAGRADOISTRUZIONESCUOLA", "ORDINESCUOLA", "Affluenza", "ALUNNI", "myRatio"]
+        }
     },{
 	"category" : "Educazione e Cultura",
 	"dataSource" : "MIBACT",
 	"id" : "Library",
-	"label" : "Biblioteche",
+	"label" : "Disponibilità di Biblioteche",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
-	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"]
+	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+        "raw" : {
+            "url" : "Torino/Torino_biblioteche.geojson",
+            "id": "UnitaBiblioteche",
+            "radius": 5,
+            "description": ["denominazioni.ufficiale", "ente", "indirizzo.via-piazza", "tipologia-amministrativa", "tipologia-funzionale", "Affluenza"]
+        }
     }],
     "sourceId" : "Torino_quartieri",
     "type" : "layer",
@@ -171,7 +182,7 @@
         "category" : "Trasporti",
         "dataSource" : "GTFS Comuni",
         "id" : "TransportStop",
-        "label" : "Fermate TPL",
+        "label" : "Disponibilità di Fermate TPL",
 	"labels": ["","","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"]
     }],
@@ -218,8 +229,7 @@
     "type" : "source",
     "url" : "Bari/Bari_quartieri.geojson",
     "center" : [16.871871, 41.117143],
-    "zoom" : 10,
-    "joinField" : "IDquartiere",
+    "zoom" : 10.8,
     "nameField" : "quartiere",
     "dataSource" : "Comune di Bari",
     "default" : true,
@@ -229,17 +239,30 @@
     "indicators" : [{
         "category" : "Educazione e Cultura",
         "id" : "School",
-        "label" : "Scuole",
+        "label" : "Disponibilità di Scuole",
 	"dataSource" : "MIUR",
 	"labels" : ["","","6-9","10-14","","","","","","",""],
-        "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"]
+        "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+        "raw" : {
+            "url": "Bari/Bari_scuole.geojson",
+            "radius": 5,
+            "capacity": "ALUNNI",
+            "id": "UnitaScuole",
+            "description": ["DENOMINAZIONESCUOLA", "DESCRIZIONETIPOLOGIAGRADOISTRUZIONESCUOLA", "ORDINESCUOLA", "Affluenza", "ALUNNI", "myRatio"]
+        }
     },{
 	"category" : "Educazione e Cultura",
 	"id" : "Library",
-	"label" : "Biblioteche",
+	"label" : "Disponibilità di Biblioteche",
 	"dataSource" : "MIBACT",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
-	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"]
+	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+        "raw" : {
+            "url" : "Bari/Bari_biblioteche.geojson",
+            "id": "UnitaBiblioteche",
+            "radius": 5,
+            "description": ["denominazioni.ufficiale", "ente", "indirizzo.via-piazza", "tipologia-amministrativa", "tipologia-funzionale", "Affluenza"]
+        }
     }],
     "city" : "Bari",
     "sourceId" : "Bari_quartieri",
@@ -263,7 +286,7 @@
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere.</br></br><b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, ..."
+	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere."
     }]
 },{
     "id" : "Bari_Istat",
@@ -276,8 +299,7 @@
 	"category" : "Popolazione",
 	"label" : "Popolazione residente",
 	"id" : "P1",
-	"colors" : ["#ffffe5", "#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"],
-	"highlight" : "black"
+	"colors" : ["#ffffe5", "#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"]
     }]
 },{
     "id" : "Bari_Salute",
@@ -288,7 +310,7 @@
         "category" : "Salute",
         "dataSource" : "Min. Salute",
         "id" : "Pharmacy",
-	"label" : "Farmacie",
+	"label" : "Disponibilità di Farmacie",
         "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
     }],
@@ -300,8 +322,7 @@
     "url" : "Firenze/Firenze_quartieri.geojson",
     "dataSource" : "Comune di Firenze",
     "center" : [11.24626, 43.77925],
-    "zoom" : 10,
-    "joinField" : "IDquartiere",
+    "zoom" : 11,
     "nameField" : "quartiere",
     "indicators" : [],
     "default" : true
@@ -314,7 +335,7 @@
         "category" : "Salute",
         "dataSource" : "Min. Salute",
         "id" : "Pharmacy",
-        "label" : "Farmacie",
+        "label" : "Disponibilità di Farmacie",
 	"labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
     }],
@@ -326,16 +347,29 @@
         "category" : "Educazione e Cultura",
         "dataSource" : "MIUR",
         "id" : "School",
-        "label" : "Scuole",
+        "label" : "Disponibilità di Scuole",
 	"labels": ["","","6-10","10-15","15-19","","","","","",""],
-	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"]
+	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"],
+        "raw" : {
+            "url": "Firenze/Firenze_scuole.geojson",
+            "radius": 5,
+            "capacity": "ALUNNI",
+            "id": "UnitaScuole",
+            "description": ["DENOMINAZIONESCUOLA", "DESCRIZIONETIPOLOGIAGRADOISTRUZIONESCUOLA", "ORDINESCUOLA", "Affluenza", "ALUNNI", "myRatio"]
+        }
     },{
 	"category" : "Educazione e Cultura",
 	"dataSource" : "MIBACT",
 	"id" : "Library",
-	"label" : "Biblioteche",
+	"label" : "Disponibilità di Biblioteche",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
-	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"]
+	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+        "raw" : {
+            "url" : "Firenze/Firenze_biblioteche.geojson",
+            "id": "UnitaBiblioteche",
+            "radius": 5,
+            "description": ["denominazioni.ufficiale", "ente", "indirizzo.via-piazza", "tipologia-amministrativa", "tipologia-funzionale", "Affluenza"]
+        }
     }],
     "sourceId" : "Firenze_quartieri",
     "type" : "layer",
@@ -358,7 +392,7 @@
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere.</br></br><b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, il quartiere con la più alta densità di occupati è ..."
+	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere."
     }]
 },{
     "id" : "Firenze_Istat",
@@ -373,4 +407,96 @@
         "id" : "P1",
 	"colors" : ["#ffffff", "#cce6ff","#99ccff","#66b3ff","#3399ff","#0080ff","#004d99","#00264d","#000d1a"]
     }]
+},{
+    "id" : "Roma_quartieri",
+    "city" : "Roma",
+    "type" : "source",
+    "url" : "Roma/Roma_quartieri.geojson",
+    "center" : [12.49, 41.91],
+    "zoom" : 9.8,
+    "nameField" : "quartiere",
+    "dataSource" : "",
+    "default" : true,
+    "indicators" : []
+},{
+    "id" : "Roma_EducazioneCultura",
+    "indicators" : [{
+        "category" : "Educazione e Cultura",
+        "id" : "School",
+        "label" : "Disponibilità di Scuole",
+        "dataSource" : "MIUR",
+        "labels" : ["","","6-9","10-14","","","","","","",""],
+        "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+        "raw" : {
+            "url": "Roma/Roma_scuole.geojson",
+            "radius": 5,
+            "capacity": "ALUNNI",
+            "id": "UnitaScuole",
+            "description": ["DENOMINAZIONESCUOLA", "DESCRIZIONETIPOLOGIAGRADOISTRUZIONESCUOLA", "ORDINESCUOLA", "Affluenza", "ALUNNI", "myRatio"]
+        }
+    },{
+        "category" : "Educazione e Cultura",
+        "id" : "Library",
+        "label" : "Disponibilità di Biblioteche",
+        "dataSource" : "MIBACT",
+        "labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
+        "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+        "raw" : {
+            "url" : "Roma/Roma_biblioteche.geojson",
+            "id": "UnitaBiblioteche",
+            "radius": 5,
+            "description": ["denominazioni.ufficiale", "ente", "indirizzo.via-piazza", "tipologia-amministrativa", "tipologia-funzionale", "Affluenza"]
+        }
+    }],
+    "city" : "Roma",
+    "sourceId" : "Roma_quartieri",
+    "type" : "layer",
+    "url" : "Roma/Roma_EducazioneCultura.json"
+},{
+    "id" : "Roma_Vitalita",
+    "city" : "Roma",
+    "type" : "layer",
+    "sourceId" : "Roma_quartieri",
+    "dataSource" : "ISTAT (cens. 2011 pop. e abitaz.)",
+    "url" : "Roma/Roma_Vitality.json",
+    "indicators" : [{
+        "category" : "Vitalità",
+        "label" : "Tipo di alloggi",
+        "id" : "tipo_di_alloggi",
+        "colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
+    },{
+	"category" : "Vitalità",
+	"label" : "Densità di occupati",
+	"id" : "densita_occupati",
+	"default" : true,
+	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
+	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere."
+    }]
+},{
+    "id" : "Roma_Istat",
+    "city" : "Roma",
+    "type" : "layer",
+    "sourceId" : "Roma_quartieri",
+    "dataSource" : "ISTAT (cens. 2011 pop. e abitaz.)",
+    "url" : "Roma/Roma_Istat.json",
+    "indicators" : [{
+	"category" : "Popolazione",
+	"label" : "Popolazione residente",
+	"id" : "P1",
+	"colors" : ["#ffffe5", "#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"]
+    }]
+},{
+    "id" : "Roma_Salute",
+    "city" : "Roma",
+    "type" : "layer",
+    "url" : "Roma/Roma_Salute.json",
+    "indicators" : [{
+        "category" : "Salute",
+        "dataSource" : "Min. Salute",
+        "id" : "Pharmacy",
+        "label" : "Disponibilità di Farmacie",
+        "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
+        "colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
+    }],
+    "sourceId" : "Roma_quartieri"
 }]
