@@ -23,15 +23,13 @@ WORKDIR /daf-server
 
 RUN npm install
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "start"]
 
 # Build for production.
 #RUN npm run build --production
 
 # Install `serve` to run the application.
 RUN npm install -g serve
-
-RUN node server
 
 # Set the command to start the node server.
 CMD serve -l 4000 #-s build
