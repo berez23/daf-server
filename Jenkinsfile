@@ -18,7 +18,7 @@ pipeline {
       script {         
          sh '''
 	COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); 
-        CONTAINERID=$(docker run -d -p 3000:3000 $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID);
+        CONTAINERID=$(docker run -d -p 4000:4000 $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID);
         sleep 5s;
         docker stop $(docker ps -a -q); 
         docker rm $(docker ps -a -q)
@@ -43,7 +43,7 @@ pipeline {
           if(env.BRANCH_NAME=='test' ){
           sh ''' COMMIT_ID=$(echo ${GIT_COMMIT}|cut -c 1-6);
               sed "s#image: nexus.teamdigitale.test/daf-server.*#image: nexus.teamdigitale.test/daf-server:$BUILD_NUMBER-$COMMIT_ID#" mappa-quartiere.yaml > mappa-quartiere$BUILD_NUMBER.yaml;
-              kubectl --kubeconfig=${JENKINS_HOME}/.kube/config.teamdigitale-staging apply -f mappa-quartiere$BUILD_NUMBER.yaml --force --validate=false
+              kubectl --kubeconfig=${JENKINS_HOME}/.kube/config.teamdigitale-staging apply -f mappa-quartiere$BUILD_NUMBER.yaml --force --validate=false; cat mappa-quartiere$BUILD_NUMBER.yaml; cat mappa-quartiere.yaml
               '''             
           slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' https://cd.daf.teamdigitale.it/blue/organizations/jenkins/CI-MappaQuartiere/activity")
           }
