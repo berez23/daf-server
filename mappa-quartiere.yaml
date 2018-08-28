@@ -12,9 +12,7 @@ spec:
     port: 4000
   selector:
     app: mappa-quartiere
-
 ---
-
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
