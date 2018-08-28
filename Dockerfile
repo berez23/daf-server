@@ -23,7 +23,7 @@ WORKDIR /daf-server
 
 RUN npm install
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "start"]
 
 # Build for production.
 #RUN npm run build --production

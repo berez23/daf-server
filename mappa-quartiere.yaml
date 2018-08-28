@@ -12,9 +12,7 @@ spec:
     port: 4000
   selector:
     app: mappa-quartiere
-
 ---
-
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -30,7 +28,7 @@ spec:
     spec:
       containers:
       - name: mappa-quartiere
-        image: nexus.teamdigitale.test/daf-mappa-quartiere:	81-f93cff
+        image: nexus.teamdigitale.test/daf-mappa-quartiere:1.0.0-SNAPSHOT
         imagePullSecrets: 
         - name: nexusregistry
         imagePullPolicy: Always
@@ -49,8 +47,8 @@ spec:
 #          mountPath: /etc/extra_hosts
       - name: daf-server
         image: nexus.teamdigitale.test/daf-server:1.0.0-SNAPSHOT
-        imagePullSecrets: 
-        - name: regsecret
+#        imagePullSecrets: 
+#        - name: regsecret 
         imagePullPolicy: Always
 #        lifecycle:
 #          postStart:
@@ -59,8 +57,8 @@ spec:
         ports:
         - name: server
           containerPort: 4000
-      imagePullSecrets:
-      - name: regsecret
+#      imagePullSecrets:
+#      - name: regsecret
 #      volumes:
 #      - name: hosts
 #        hostPath:
