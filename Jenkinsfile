@@ -37,7 +37,7 @@ pipeline {
           }
         }       
       }
-    
+    }
     stage('Staging') {
       steps { 
         script {
@@ -49,8 +49,8 @@ pipeline {
           }
         }
       }
-}}
-  }
+}
+}
   post { 
         failure { 
             slackSend (color: '#ff0000', message: "FAIL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' https://cd.daf.teamdigitale.it/blue/organizations/jenkins/CI-MappaQuartiere/activity")
