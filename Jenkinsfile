@@ -33,7 +33,6 @@ pipeline {
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker push $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID'
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker tag $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID $IMAGE_NAME_SERVER:latest; docker push $IMAGE_NAME_SERVER:latest'  
             sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker rmi $IMAGE_NAME_SERVER:$BUILD_NUMBER-$COMMIT_ID;'
-            slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' https://cd.daf.teamdigitale.it/blue/organizations/jenkins/CI-MappaQuartiere/activity")             
           }
         }       
       }
@@ -41,10 +40,11 @@ pipeline {
     stage('Staging') {
       steps { 
         script {
-
           if(env.BRANCH_NAME=='test' ){
           sh ''' COMMIT_ID=$(echo ${GIT_COMMIT}|cut -c 1-6);
-              sed "s#image: nexus.teamdigitale.test/daf-server.*#image: nexus.teamdigitale.test/daf-server:$BUILD_NUMBER-$COMMIT_ID#" mappa-quartiere.yaml > mappa-quartiere1.yaml; kubectl --kubeconfig=${JENKINS_HOME}/.kube/config.teamdigitale-staging apply -f mappa-quartiere1.yaml --validate=false'''             
+              sed "s#image: nexus.teamdigitale.test/daf-server.*#image: nexus.teamdigitale.test/daf-server:$BUILD_NUMBER-$COMMIT_ID#" mappa-quartiere.yaml > mappa-quartiere$BUILD_NUMBER.yaml;
+              kubectl --kubeconfig=${JENKINS_HOME}/.kube/config.teamdigitale-staging apply -f mappa-quartiere$BUILD_NUMBER.yaml --force --validate=false
+              '''             
           slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' https://cd.daf.teamdigitale.it/blue/organizations/jenkins/CI-MappaQuartiere/activity")
           }
         }
