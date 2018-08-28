@@ -31,6 +31,8 @@ CMD [ "npm", "start" ]
 # Install `serve` to run the application.
 RUN npm install -g serve
 
+RUN node server
+
 # Set the command to start the node server.
 CMD serve -l 4000 #-s build
 
