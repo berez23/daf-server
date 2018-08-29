@@ -17,7 +17,7 @@ COPY . .
 # Copy all local files into the image.
 #RUN git clone https://github.com/esterpantaleo/daf-server
 
-WORKDIR /daf-server
+WORKDIR .
 
 #RUN git checkout production
 
