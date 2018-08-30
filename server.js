@@ -23,7 +23,7 @@ const start = async () => {
 
     server.route({
         method: 'GET',
-        path: '/public/menu.json',
+        path: '/menu.json',
         handler: function (request, h) {
             return h.file('menu.json');
         }
