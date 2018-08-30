@@ -9,7 +9,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 #  git-core   
   #&& apt-get install -y build-essential python
 
-#copy the file 
+#copy the file
 COPY . .
 
 #RUN npm install -g node-gyp  
