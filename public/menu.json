@@ -18,7 +18,8 @@
 	"dataSource" : "MIUR",
 	"labels" : ["","","6-9","10-14","","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
-	"description": "<b>Indicatore 'Disponibilità di Scuole'</b></br>L'indicatore 'Disponibilità di Scuole' è un indicatore nella categoria Educazione e Cultura. Questo indicatore utilizza dati del MIUR ed esprime quanto l'offerta del servizio scuola riesce a soddisfare la domanda locale. Più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto nella sezione 'Modello KPI per servizi geolocalizzati'.</br><b>Modelllo KPI per servizi geolocalizzati</b></br>Dato un servizio (ad esempio le scuole) di cui abbiamo dati geolocalizzati e nota la distribuzione della popolazione sul territorio, il modello calcola una stima del livello di soddisfazione della domanda dello specifico servizio sul territorio. <br>Il modello assume che ciascuna unità di servizio (ad esempio ciascuna scuola) fornisce il proprio servizio in un raggio di azione simmetrico intorno ad essa e con intensità che decresce radialmente (più nello specifico il modello usa un kernel Gaussiano con deviazione standard proporzionale alla capacità del servizio - se disponibile - o pari a 0.5 Km - nel caso generico).</br><b>Nota</b></br>Il modello sopra descritto riesce a lavorare su una scala pari alla singola zona di censimento; in questa visualizzazione la scala è ridotta ed il modello aggrega i dati a livello di quartiere.",
+	"description": "<b>KPI 'Disponibilità di Scuole'</b></br>L'indicatore 'Disponibilità di Scuole' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIUR. Questo indicatore esprime quanto l'offerta del servizio scuola riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di scuole. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+	"descriptionUrl": "KPI_description.json",
 	"raw" : {
 	    "url": "Milano/Milano_scuole.geojson",
 	    "radius": 5,
@@ -33,6 +34,8 @@
 	"dataSource" : "MIBACT",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Biblioteche'</b></br>L'indicatore 'Disponibilità di Biblioteche' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIBACT. Questo indicatore esprime quanto l'offerta del servizio biblioteche riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di bibioteche. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
 	"raw" : {
 	    "url" : "Milano/Milano_biblioteche.geojson",
 	    "id": "UnitaBiblioteche",
@@ -55,8 +58,10 @@
         "id" : "TransportStop",
         "label" : "Disponibilità di Fermate TPL",
 	"colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"],
+	"description": "<b>KPI 'Disponibilità di Fermate TPL'</b></br>L'indicatore 'Disponibilità di Fermate TPL' è un indicatore nella categoria Trasporti ed utilizza dati GTFS Comuni. Questo indicatore esprime quanto l'offerta di fermate TPL riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
 	"raw": {
-	    "url" : "Milano/Milano_TPL",
+	    "url" : "Milano/Milano_TPL.geojson",
 	    "id": "UnitaTrasporti",
 	    "radius": 3,
 	    "description": ["route_id", "stop_name", "Affluenza"]
@@ -75,14 +80,16 @@
 	"label" : "Tipo di alloggi",
 	"id" : "tipo_di_alloggi",
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto il tipo di alloggi.</br>"
+	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>",
+	"descriptionUrl": "Vitality_description.json"
     },{
 	"category" : "Vitalità",
 	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>Indicatore 'Densità di occupati per ettaro'</b></br>L'indicatore 'Densità di occupati' è un indicatore di vitalità (vedi sotto) e corrisponde al numero di persone occupate nel quartiere diviso per l'area del quartiere, misurata in ettari.</br></br><b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere.</br></br><b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, il quartiere con la più alta densità di occupati è Loreto, seguito da Selinunte, Buenos Aires Venezia e Washington. Il quartiere invece con la più bassa densità di occupati è Parco Bosco in Città, seguito da Parco Forlanini, Quintosole e Figino. Duomo è all'incirca a metà nella scala, con una densità relativamente bassa di occupati."
+	"description" : "<b>Indicatore 'Densità di occupati per ettaro'</b></br>L'indicatore 'Densità di occupati' è un indicatore di vitalità (vedi sotto) e corrisponde al numero di persone occupate nel quartiere diviso per l'area del quartiere, misurata in ettari.</br></br>",
+	"descriptionUrl": "Vitality_description.json"
     }]
 },{
     "id" : "Milano_Istat",
@@ -95,7 +102,9 @@
 	"category" : "Popolazione",
 	"label" : "Popolazione residente",
 	"id" : "P1",
-	"colors" : ["#ffffe5", "#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"]
+	"colors" : ["#ffffe5", "#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"],
+	"description": "<b>'Popolazione residente'</b></br>",
+	"descriptionUrl": "ISTAT_description.json"
     }]
 },{
     "id" : "Milano_Salute",
@@ -109,8 +118,10 @@
 	"label" : "Disponibilità di Farmacie",
         "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
 	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
+	"description": "<b>KPI 'Disponibilità di Farmacie'</b></br>L'indicatore 'Disponibilità di Farmacie' è un indicatore nella categoria Salute ed utilizza dati provenienti dal Ministero della Salute. Questo indicatore esprime quanto l'offerta del servizio farmacie riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
 	"raw" : {
-	    "url" : "Milano/Milano_farmacie",
+	    "url" : "Milano/Milano_farmacie.geojson",
 	    "id": "UnitaFarmacie",
 	    "radius": 5,
 	    "description": ["DESCRIZIONEFARMACIA", "INDIRIZZO", "DATAINIZIOVALIDITA", "DESCRIZIONETIPOLOGIA", "CODICETIPOLOGIA", "Affluenza"]
@@ -139,7 +150,9 @@
         "id" : "Pharmacy",
         "label" : "Disponibilità di Farmacie",
 	"labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
-	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
+	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
+	"description": "<b>KPI 'Disponibilità di Farmacie'</b></br>L'indicatore 'Disponibilità di Farmacie' è un indicatore nella categoria Salute ed utilizza dati provenienti dal Ministero della Salute. Questo indicatore esprime quanto l'offerta del servizio farmacie riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json"
     }],
     "sourceId" : "Torino_quartieri"
 },{
@@ -152,6 +165,8 @@
         "label" : "Disponibilità di Scuole",
 	"labels": ["","","6-10","10-15","15-19","","","","","",""],
 	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"],
+	"description": "<b>KPI 'Disponibilità di Scuole'</b></br>L'indicatore 'Disponibilità di Scuole' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIUR. Questo indicatore esprime quanto l'offerta del servizio scuola riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di scuole. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url": "Torino/Torino_scuole.geojson",
             "radius": 5,
@@ -166,6 +181,8 @@
 	"label" : "Disponibilità di Biblioteche",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Biblioteche'</b></br>L'indicatore 'Disponibilità di Biblioteche' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIBACT. Questo indicatore esprime quanto l'offerta del servizio biblioteche riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di bibioteche. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url" : "Torino/Torino_biblioteche.geojson",
             "id": "UnitaBiblioteche",
@@ -201,14 +218,16 @@
 	"category" : "Vitalità",
 	"label" : "Tipi di Alloggio",
 	"id" : "tipo_di_alloggi",
-	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
+	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
+	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>",
+        "descriptionUrl": "Vitality_description.json"
     },{
 	"category" : "Vitalità",
 	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere.</br></br><b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, il quartiere con la più alta densità di occupati è San Donato, seguito da Cenisia, San Paolo e Barriera di Milano. Il quartiere invece con la più bassa densità di occupati è Madonna del Pilone, seguito da borgo Poe Cavoretto."
+	"description" : "<b>Esplora la visualizzazione</b></br>Come si vede dall'istogramma, il quartiere con la più alta densità di occupati è San Donato, seguito da Cenisia, San Paolo e Barriera di Milano. Il quartiere invece con la più bassa densità di occupati è Madonna del Pilone, seguito da borgo Poe Cavoretto."
     }]
 },{
     "id" : "Torino_Istat",
@@ -244,6 +263,8 @@
 	"dataSource" : "MIUR",
 	"labels" : ["","","6-9","10-14","","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Scuole'</b></br>L'indicatore 'Disponibilità di Scuole' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIUR. Questo indicatore esprime quanto l'offerta del servizio scuola riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di scuole. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url": "Bari/Bari_scuole.geojson",
             "radius": 5,
@@ -258,6 +279,8 @@
 	"dataSource" : "MIBACT",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Biblioteche'</b></br>L'indicatore 'Disponibilità di Biblioteche' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIBACT. Questo indicatore esprime quanto l'offerta del servizio biblioteche riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di bibioteche. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url" : "Bari/Bari_biblioteche.geojson",
             "id": "UnitaBiblioteche",
@@ -280,14 +303,17 @@
 	"category" : "Vitalità",
 	"label" : "Tipo di alloggi",
 	"id" : "tipo_di_alloggi",
-	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
+	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
+	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>",
+        "descriptionUrl": "Vitality_description.json"
     },{
 	"category" : "Vitalità",
 	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere."
+	"description" : "<b>Indicatore 'Densità di occupati per ettaro'</b></br>L'indicatore 'Densità di occupati' è un indicatore di vitalità (vedi sotto) e corrisponde al numero di persone occupate nel quartiere diviso per l'area del quartiere, misurata in ettari.</br></br>",
+	"descriptionUrl": "Vitality_description.json"
     }]
 },{
     "id" : "Bari_Istat",
@@ -351,6 +377,8 @@
         "label" : "Disponibilità di Scuole",
 	"labels": ["","","6-10","10-15","15-19","","","","","",""],
 	"colors" : ["#ffffe5","#f7fcb9","#d9f0a3","#addd8e","#78c679","#41ab5d","#238443","#006837","#004529"],
+	"description": "<b>KPI 'Disponibilità di Scuole'</b></br>L'indicatore 'Disponibilità di Scuole' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIUR. Questo indicatore esprime quanto l'offerta del servizio scuola riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di scuole. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url": "Firenze/Firenze_scuole.geojson",
             "radius": 5,
@@ -365,6 +393,8 @@
 	"label" : "Disponibilità di Biblioteche",
 	"labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
 	"colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Biblioteche'</b></br>L'indicatore 'Disponibilità di Biblioteche' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIBACT. Questo indicatore esprime quanto l'offerta del servizio biblioteche riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di bibioteche. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url" : "Firenze/Firenze_biblioteche.geojson",
             "id": "UnitaBiblioteche",
@@ -386,14 +416,17 @@
 	"category" : "Vitalità",
 	"label" : "Tipi di Alloggio",
 	"id" : "tipo_di_alloggi",
-	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
+	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
+	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>",
+        "descriptionUrl": "Vitality_description.json"
     },{
 	"category" : "Vitalità",
 	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere."
+	"description" : "<b>Indicatore 'Densità di occupati per ettaro'</b></br>L'indicatore 'Densità di occupati' è un indicatore di vitalità (vedi sotto) e corrisponde al numero di persone occupate nel quartiere diviso per l'area del quartiere, misurata in ettari.</br></br>",
+        "descriptionUrl": "Vitality_description.json"
     }]
 },{
     "id" : "Firenze_Istat",
@@ -428,6 +461,8 @@
         "dataSource" : "MIUR",
         "labels" : ["","","6-9","10-14","","","","","","",""],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Scuole'</b></br>L'indicatore 'Disponibilità di Scuole' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIUR. Questo indicatore esprime quanto l'offerta del servizio scuola riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di scuole. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url": "Roma/Roma_scuole.geojson",
             "radius": 5,
@@ -442,6 +477,8 @@
         "dataSource" : "MIBACT",
         "labels" : ["","","6-9","10-14","15-18","19-24","25-34","35-49","50-64","65-73",">74"],
         "colors" : ["#E8F8F5","#D1F2EB","#A3E4D7","#76D7C4","#48C9B0","#1ABC9C","#148F77","#17A589","#0E6251"],
+	"description": "<b>KPI 'Disponibilità di Biblioteche'</b></br>L'indicatore 'Disponibilità di Biblioteche' è un indicatore nella categoria Educazione e Cultura ed utilizza dati del MIBACT. Questo indicatore esprime quanto l'offerta del servizio biblioteche riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda di bibioteche. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
         "raw" : {
             "url" : "Roma/Roma_biblioteche.geojson",
             "id": "UnitaBiblioteche",
@@ -464,14 +501,17 @@
         "category" : "Vitalità",
         "label" : "Tipo di alloggi",
         "id" : "tipo_di_alloggi",
-        "colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"]
+        "colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
+	"description" : "<b>Indicatore 'Tipo di alloggi'</b></br>L'indicatore 'Tipo di alloggi', un indicatore di vitalità (vedi sotto), utilizza delle grandezze misurate dal censimento ISTAT 2011 della popolazione e delle abitazioni: il numero di palazzi con 1, 2, 3, 4 o più piani. Il tipo di alloggi nel quartiere i è uguale a ∑<sub>c</sub>(n<sub>ci</sub> * c)/∑<sub>c</sub>(n<sub>ci</sub>) dove c appartiene a {1,2,3,4} (numero di piani), n<sub>ci</sub> è il numero di palazzi con c piani nel quartiere i, ∑<sub>c</sub> è la somma su c.</br><b></br>",
+        "descriptionUrl": "Vitality_description.json"
     },{
 	"category" : "Vitalità",
 	"label" : "Densità di occupati",
 	"id" : "densita_occupati",
 	"default" : true,
 	"colors" : ["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"],
-	"description" : "<b>La vitalità</b></br>Una domanda fondamentale alla quale urbanisti, sociologi ed economisti cercano di rispondere è cosa rende viva una città. In \"The Death and Life of Great American Cities\", uno dei libri più influenti nel campo della pianificazione urbana, Jane Jacobs introduce il concetto di <i>tessuto urbano</i>, sostenendo che la decadenza di una città è determinata da una riduzione significativa della mobilità pedonale (causata ad esempio dalla costruzione di una strada a percorrenza veloce o di complessi molto grandi) e che la vitalità di una città è creata dalla presenza costante di pedoni in qualsiasi momento della giornata. </br>Più in dettaglio, Jane Jacobs nel suo libro sostiene che per mantenere viva una grande città è necessario mantenerne la diversità incoraggiando<ul style='list-style-type:disc'><li><i>l'uso diversificato del territorio</i>, ovvero facendo in modo che il quartiere serva più di due funzioni primarie e possa quindi attrarre persone di diversa estrazione,</li><li><i>la presenza di isolati piccoli</i> che facilitano contatti e creazione di opportunità,</li><li><i>la presenza di costruzioni aventi diverso valore</i> perchè siano disponibili affitti sia alti che bassi,</li><li>ed infine <i>la presenza di una densità abbastanza alta di persone e costruzioni.</i></li></ul></br><b>Come misurare la vitalità: la densità di occupati</b></br>Uno dei modi più efficaci per misurare la vitalità è il monitoraggio del traffico telefonico di una specifica area. Nell'articolo intitolato \"The Death and Life of Great Italian Cities: A Mobile Phone Data Perspective\", attraverso uno studio di correlazione tra la vitalità così misurata e varie grandezze facilmente misurabili, gli autori hanno individuato delle variabili correlate con la vitalità, tra cui appunto la densità di occupati, ovvero il numero di persone occupate per unità di area (misurata in ettari). Dunque la densità di occupati è un buon indicatore della vitalità di un quartiere."
+	"description" : "<b>Indicatore 'Densità di occupati per ettaro'</b></br>L'indicatore 'Densità di occupati' è un indicatore di vitalità (vedi sotto) e corrisponde al numero di persone occupate nel quartiere diviso per l'area del quartiere, misurata in ettari.</br></br>",
+        "descriptionUrl": "Vitality_description.json"
     }]
 },{
     "id" : "Roma_Istat",
