@@ -19,14 +19,14 @@ COPY . .
 
 WORKDIR .
 
-#RUN git checkout production
-
-RUN npm install
-
-CMD [ "npm", "start"]
+#install all node modules
+RUN npm i
 
 # Build for production.
 #RUN npm run build --production
+
+#start exposing file
+CMD ["npm", "start"]
 
 # Install `serve` to run the application.
 RUN npm install -g serve
