@@ -26,13 +26,13 @@ RUN npm i
 #RUN npm run build --production
 
 #start exposing file
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
 
 # Install `serve` to run the application.
-RUN npm install -g serve
+CMD ["node","server"]
 
 # Set the command to start the node server.
-CMD serve -l 4000 #-s build
+#CMD serve -l 4000 #-s build
 
 # Tell Docker about the port we'll run on.
 EXPOSE 4000
