@@ -1,6 +1,6 @@
 {
-    "id": "Torino_dashboard_ISTAT",
-    "url": "Torino/Torino_dashboard.json",
+    "id": "Firenze_dashboard_ISTAT",
+    "url": "Firenze/Firenze_dashboard.json",
     "dataSource": "ISTAT (censimento 2011 della popolazione e delle abitazioni)",
     "list": [{
 	"label": "Popolazione residente",

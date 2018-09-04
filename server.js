@@ -23,9 +23,9 @@ const start = async () => {
 
     server.route({
         method: 'GET',
-        path: '/mappa/menu.json',
+        path: '/mappa/{file}',
         handler: function (request, h) {
-            return h.file('menu.json');
+            return h.file(request.params.file);
         }
     });
 
