@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         NEXUS_TEST = 'nexus.teamdigitale.test/daf-server'
-        NEXUS_PROD = '/nexus.daf.teamdigitale.it/daf-server'
+        NEXUS_PROD = 'nexus.daf.teamdigitale.it/daf-server'
     }
     stages {
         stage('Build test ') {
