@@ -6,14 +6,14 @@ pipeline {
     }
     stages {
         stage('Build test ') {
-            when { not { branch 'master' } }
+            when { not { branch 'production' } }
             steps {
                 slackSend (message: "BUILD START: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' CHECK THE RESULT ON: https://cd.daf.teamdigitale.it/blue/organizations/jenkins/daf-server/activity")
                 sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker build . -t $NEXUS_TEST:$BUILD_NUMBER-$COMMIT_ID'
             }
         }
         stage('Build prod ') {
-            when { branch 'master' }
+            when { branch 'production' }
             agent { label 'prod' }
             steps {
                 slackSend (message: "BUILD START: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' CHECK THE RESULT ON: https://cd.daf.teamdigitale.it/blue/organizations/jenkins/daf-server/activity")
@@ -21,7 +21,7 @@ pipeline {
             }
         }
         stage('Test test') {
-            when { not { branch 'master' } }
+            when { not { branch 'production' } }
             steps {
                 script {
                     sh '''
@@ -35,7 +35,7 @@ pipeline {
             }
         }
         stage('Test prod') {
-            when { branch 'master' }
+            when { branch 'production' }
             agent { label 'prod' }
             steps {
                 script {
@@ -63,7 +63,7 @@ pipeline {
             }
         }
         stage('Upload prod') {
-            when { branch 'master' }
+            when { branch 'production' }
             agent { label 'prod' }
             steps {
                 script {
