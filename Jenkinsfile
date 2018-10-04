@@ -35,6 +35,8 @@ pipeline {
             }
         }
         stage('Test prod') {
+            when { branch 'master' }
+            agent { label 'prod' }
             steps {
                 script {
                     sh '''
@@ -48,6 +50,7 @@ pipeline {
             }
         }
         stage('Upload test'){
+            when { branch 'test' }
             steps {
                 script {
                     if(env.BRANCH_NAME == 'test'  || env.BRANCH_NAME == 'production'){
@@ -60,6 +63,8 @@ pipeline {
             }
         }
         stage('Upload prod') {
+            when { branch 'master' }
+            agent { label 'prod' }
             steps {
                 script {
                     if(env.BRANCH_NAME == 'test'  || env.BRANCH_NAME == 'production'){
