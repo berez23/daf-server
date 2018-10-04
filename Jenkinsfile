@@ -9,7 +9,7 @@ pipeline {
             when { not { branch 'production' } }
             steps {
                 slackSend (message: "BUILD START: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' CHECK THE RESULT ON: https://cd.daf.teamdigitale.it/blue/organizations/jenkins/daf-server/activity")
-                sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker build . -t $NEXUS_TEST:$BUILD_NUMBER-$COMMIT_ID' --network host
+                sh 'COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6); docker build . -t $NEXUS_TEST:$BUILD_NUMBER-$COMMIT_ID --network host'
             }
         }
         stage('Build prod ') {
