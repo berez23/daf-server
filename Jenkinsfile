@@ -34,21 +34,21 @@ pipeline {
                 }
             }
         }
-        stage('Test prod') {
-            when { branch 'production' }
-            agent { label 'prod' }
-            steps {
-                script {
-                    sh '''
-                       COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6);
-                       CONTAINERID=$(docker run -d -p 3000:3000 $NEXUS_PROD:$BUILD_NUMBER-$COMMIT_ID);
-                       sleep 5s;
-                       docker stop $(docker ps -a -q);
-                       docker rm $(docker ps -a -q)
-                       '''
-                }
-            }
-        }
+        // stage('Test prod') {
+        //     when { branch 'production' }
+        //     agent { label 'prod' }
+        //     steps {
+        //         script {
+        //             sh '''
+        //                COMMIT_ID=$(echo ${GIT_COMMIT} | cut -c 1-6);
+        //                CONTAINERID=$(docker run -d -p 3000:3000 $NEXUS_PROD:$BUILD_NUMBER-$COMMIT_ID);
+        //                sleep 5s;
+        //                docker stop $(docker ps -a -q);
+        //                docker rm $(docker ps -a -q)
+        //                '''
+        //         }
+        //     }
+        // }
         stage('Upload test'){
             when { branch 'test' }
             steps {
