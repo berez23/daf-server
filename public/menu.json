@@ -364,7 +364,13 @@
         "id" : "Pharmacy",
         "label" : "Disponibilità di Farmacie",
 	"labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
-	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
+	"colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
+	"raw" : {
+            "url" : "Firenze/Firenze_farmacie.geojson",
+            "id": "UnitaFarmacie",
+            "radius": 5,
+            "description": ["DESCRIZIONEFARMACIA", "INDIRIZZO", "DATAINIZIOVALIDITA", "DESCRIZIONETIPOLOGIA", "CODICETIPOLOGIA", "Affluenza"]
+	}
     }],
     "sourceId" : "Firenze_quartieri"
 },{
@@ -441,6 +447,27 @@
         "id" : "P1",
 	"colors" : ["#ffffff", "#cce6ff","#99ccff","#66b3ff","#3399ff","#0080ff","#004d99","#00264d","#000d1a"]
     }]
+},{
+    "id" : "Firenze_Trasporti",
+    "city" : "Firenze",
+    "type" : "layer",
+    "sourceId" : "Firenze_quartieri",
+    "indicators" : [{
+        "category" : "Trasporti",
+        "dataSource" : "GTFS Comuni",
+        "id" : "TransportStop",
+        "label" : "Disponibilità di Fermate TPL",
+        "colors" : ["#EAF2F8","#D4E6F1","#A9CCE3","#7FB3D5","#5499C7","#2980B9","#2471A3","#1F618D","#1A5276"],
+        "description": "<b>KPI 'Disponibilità di Fermate TPL'</b></br>L'indicatore 'Disponibilità di Fermate TPL' è un indicatore nella categoria Trasporti ed utilizza dati GTFS Comuni. Questo indicatore esprime quanto l'offerta di fermate TPL riesce a soddisfare la domanda locale: più alto è il valore dell'indicatore, maggiore è il grado di soddisfazione della domanda. Il calcolo dell'indicatore è stato effettuato tramite il modello descritto sotto.</br></br>",
+        "descriptionUrl": "KPI_description.json",
+        "raw": {
+            "url" : "Firenze/Firenze_TPL.geojson",
+            "id": "UnitaTrasporti",
+            "radius": 3,
+            "description": ["route_id", "stop_name", "Affluenza"]
+        }
+    }],
+    "url" : "Firenze/Firenze_Trasporti.json"
 },{
     "id" : "Roma_quartieri",
     "city" : "Roma",
@@ -537,7 +564,13 @@
         "id" : "Pharmacy",
         "label" : "Disponibilità di Farmacie",
         "labels" : ["","3-6","6-10","10-15","15-19","19-25","25-35","35-50","50-65","65-74","74 e più"],
-        "colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"]
+        "colors" : ["#fff7fb", "#ece2f0", "#d0d1e6", "#a6bddb", "#67a9cf", "#3690c0", "#02818a", "#016c59", "#014636"],
+	"raw" : {
+            "url" : "Roma/Roma_farmacie.geojson",
+            "id": "UnitaFarmacie",
+            "radius": 5,
+            "description": ["DESCRIZIONEFARMACIA", "INDIRIZZO", "DATAINIZIOVALIDITA", "DESCRIZIONETIPOLOGIA", "CODICETIPOLOGIA", "Affluenza"]
+	}
     }],
     "sourceId" : "Roma_quartieri"
 }]
