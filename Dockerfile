@@ -9,7 +9,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 #  git-core   
   #&& apt-get install -y build-essential python
 
-#copy the file 
+#copy the file
 COPY . .
 
 #RUN npm install -g node-gyp  
@@ -17,22 +17,22 @@ COPY . .
 # Copy all local files into the image.
 #RUN git clone https://github.com/esterpantaleo/daf-server
 
-WORKDIR /daf-server
+WORKDIR .
 
-#RUN git checkout production
-
-RUN npm install
-
-CMD [ "npm", "start" ]
+#install all node modules
+RUN npm i
 
 # Build for production.
 #RUN npm run build --production
 
+#start exposing file
+#CMD ["npm", "start"]
+
 # Install `serve` to run the application.
-RUN npm install -g serve
+CMD ["node","server"]
 
 # Set the command to start the node server.
-CMD serve -l 4000 #-s build
+#CMD serve -l 4000 #-s build
 
 # Tell Docker about the port we'll run on.
 EXPOSE 4000
